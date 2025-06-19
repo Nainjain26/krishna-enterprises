@@ -1,5 +1,5 @@
 import CommitmentMessage from "@/components/CommitmentMessage";
-import Footer from "@/components/Footer";
+
 import Hero from "@/components/Hero";
 import MarketingFAQ from "@/components/MarketingFAQ";
 // import KeyFeatures from "@/components/KeyFeatures";
@@ -16,7 +16,7 @@ export default function Home() {
     <CommitmentMessage/>
     <MarketingStats/>
     <MarketingFAQ/>
-    <Footer/>
+   
    </div>
   );
 }
