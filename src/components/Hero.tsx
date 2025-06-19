@@ -146,7 +146,7 @@ export default function Hero() {
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-green-800">
             {typedText || "Supercharge Your"}
           </span>{" "}
-          WhatsApp Marketing
+          
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
