@@ -126,7 +126,7 @@ export default function MarketingStats() {
         transition={{ duration: 1, delay: 0.3 }}
         className="text-lg md:text-xl text-gray-800 max-w-3xl mx-auto mb-20"
       >
-        Dive into the metrics powering our clients' success with key performance insights that drive results.
+        Dive into the metrics powering our clients &apos; success with key performance insights that drive results.
       </motion.p>
 
       {/* Stats Grid */}
