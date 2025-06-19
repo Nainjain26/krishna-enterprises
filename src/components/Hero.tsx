@@ -152,31 +152,33 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="text-lg md:text-2xl text-gray-600 max-w-3xl mx-auto mb-10 font-medium"
+          className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10 font-medium"
         >
-          Send{" "}
-          <span className="text-green-600 font-semibold">unlimited messages</span>{" "}
-          for free. Skyrocket your campaigns with automated, bulk outreach that
-          maximizes engagement.
+          INTRODUCING AN
+          <span className="text-green-600 font-semibold"> AMAZING WHATSAPP</span>{" "}
+           MARKETING SOFTWARE THAT OFFERS YOU THE BENEFIT OF SENDING MESSAGES WITHOUT ANY COST, ALONG WITH THE ABILITY TO SEND BULK MESSAGES EFFORTLESSLY, AND A VARIETY OF EXCITING FEATURES TO ENHANCE YOUR MARKETING EXPERIENCE!
         </motion.p>
 
-        <div className="flex gap-6 justify-center">
-          <motion.button
-            whileHover={{ scale: 1.15, rotate: 2 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-4 rounded-full font-bold shadow-xl flex items-center gap-3 text-lg"
-          >
-            <FaWhatsapp className="text-2xl animate-pulse" /> Try Free Demo
-          </motion.button>
+      <div className="flex gap-6 justify-center">
+      <motion.a
+        href="https://wa.me/917067330134"
+        target="_blank"
+        rel="noopener noreferrer"
+        whileHover={{ scale: 1.15, rotate: 2 }}
+        whileTap={{ scale: 0.95 }}
+        className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-4 rounded-full font-bold shadow-xl flex items-center gap-3 text-lg"
+      >
+        <FaWhatsapp className="text-2xl animate-pulse" /> Try Free Demo
+      </motion.a>
 
-          <motion.button
-            whileHover={{ scale: 1.15, rotate: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="border-2 border-green-600 text-green-700 hover:bg-green-50 px-8 py-4 rounded-full font-bold shadow-md text-lg"
-          >
-            Learn More
-          </motion.button>
-        </div>
+      <motion.button
+        whileHover={{ scale: 1.15, rotate: -2 }}
+        whileTap={{ scale: 0.95 }}
+        className="border-2 border-green-600 text-green-700 hover:bg-green-50 px-8 py-4 rounded-full font-bold shadow-md text-lg"
+      >
+        Learn More
+      </motion.button>
+    </div>
       </motion.div>
 
       {/* Decorative Glows */}
