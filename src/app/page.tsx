@@ -11,6 +11,7 @@ import MarketingStrategy from "@/components/MarketingStrategy";
 export default function Home() {
   return (
    <div>
+    
     <Hero/>
     {/* <KeyFeatures/> */}
     <MarketingStrategy/>

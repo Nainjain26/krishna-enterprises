@@ -109,7 +109,7 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative md:min-h-screen py-28 flex flex-col justify-center items-center bg-gradient-to-br from-blue-50 via-white to-blue-100 text-center px-4 overflow-hidden"
+      className="relative md:min-h-screen  py-28 flex flex-col justify-center items-center bg-gradient-to-br from-blue-50 via-white to-blue-100 text-center px-4 overflow-hidden"
     >
       {/* Parallax radial background */}
       <motion.div
@@ -119,10 +119,10 @@ export default function Hero() {
 
       {/* Overlay Logo with Parallax */}
       <motion.img
-        src="/favicon.jpg" // Use the imported logo
+        src="/favicon1.png" // Use the imported logo
         alt="Krishna Enterprises Digital Marketing Logo"
         style={{ y: logoY }} // Parallax effect
-        className="absolute top-6 md:top-10 lg:top-12 left-1/2 transform -translate-x-1/2 w-32 sm:w-40 md:w-48 lg:w-64 z-20 opacity-85"
+        className="absolute top-6 md:top-10 lg:top-2 left-1/2 transform -translate-x-1/2 w-32 sm:w-40 md:w-48 lg:w-48 z-20 opacity-85"
         initial={{ opacity: 0.7 }}
         animate={{ opacity: 0.9 }}
         transition={{ duration: 1 }}
@@ -204,6 +204,7 @@ export default function Hero() {
         transition={{ duration: 2, delay: 1 }}
         className="absolute bottom-4 sm:bottom-6 md:bottom-10 right-4 sm:right-6 md:right-10 w-16 sm:w-20 md:w-32 h-16 sm:h-20 md:h-32 bg-blue-500 rounded-full blur-xl"
       />
+       
     </section>
   );
 }

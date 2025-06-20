@@ -286,7 +286,7 @@ export default function ContactPage() {
             <div>
               <h3 className="text-xl font-bold text-gray-800">Our Office</h3>
               <p className="text-gray-600 mt-1">Visit us during business hours</p>
-              <p className="text-orange-600 font-medium mt-2 text-sm">331 Krishna bag colony palhar nagar tanki ke pas 60 feet RD indore MP near shiv  mandir. Indore, Madhya Pradesh, PIN: 452005 </p>
+              <p className="text-orange-600 font-medium mt-2 text-sm">60 feet road Airport road indore MP 452005</p>
             </div>
           </motion.div>
         </motion.div>
