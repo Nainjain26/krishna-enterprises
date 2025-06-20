@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 
+
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -12,6 +13,7 @@ export default function Hero() {
   });
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const logoY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]); // Parallax effect for logo
   const [typedText, setTypedText] = useState("");
   const fullText = "Supercharge Your ";
 
@@ -47,8 +49,13 @@ export default function Hero() {
       return;
     }
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
 
     const particles = Array.from({ length: 60 }).map(() => ({
       x: Math.random() * canvas.width,
@@ -71,7 +78,7 @@ export default function Hero() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(34, 197, 94, 0.5)";
+        ctx.fillStyle = "rgba(52, 152, 219, 0.5)"; // Changed to #3498DB
         ctx.fill();
 
         for (let j = i + 1; j < particles.length; j++) {
@@ -81,7 +88,7 @@ export default function Hero() {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(34, 197, 94, ${1 - dist / 100})`;
+            ctx.strokeStyle = `rgba(52, 152, 219, ${1 - dist / 100})`; // Changed to #3498DB
             ctx.stroke();
           }
         }
@@ -92,30 +99,33 @@ export default function Hero() {
 
     animate();
 
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    window.addEventListener('resize', handleResize);
-
     return () => {
       cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', resizeCanvas);
       canvas.remove();
     };
   }, []);
-  
 
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-green-50 via-white to-green-100 text-center px-4 overflow-hidden"
+      className="relative md:min-h-screen py-28 flex flex-col justify-center items-center bg-gradient-to-br from-blue-50 via-white to-blue-100 text-center px-4 overflow-hidden"
     >
       {/* Parallax radial background */}
       <motion.div
         style={{ y: backgroundY }}
-        className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(74,222,128,0.3)_0%,_transparent_70%)] -z-10"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(52,152,219,0.3)_0%,_transparent_70%)] -z-10"
+      />
+
+      {/* Overlay Logo with Parallax */}
+      <motion.img
+        src="/favicon.jpg" // Use the imported logo
+        alt="Krishna Enterprises Digital Marketing Logo"
+        style={{ y: logoY }} // Parallax effect
+        className="absolute top-6 md:top-10 lg:top-12 left-1/2 transform -translate-x-1/2 w-32 sm:w-40 md:w-48 lg:w-64 z-20 opacity-85"
+        initial={{ opacity: 0.7 }}
+        animate={{ opacity: 0.9 }}
+        transition={{ duration: 1 }}
       />
 
       {/* Animated Blob */}
@@ -127,7 +137,7 @@ export default function Hero() {
           rotate: [0, 180, 360],
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-        className="absolute w-[1200px] h-[1200px] bg-green-200 rounded-full blur-3xl -z-10"
+        className="absolute w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] md:w-[1000px] md:h-[1000px] lg:w-[1200px] lg:h-[1200px] bg-blue-200 rounded-full blur-3xl -z-10"
       />
 
       {/* Hero Content */}
@@ -135,15 +145,15 @@ export default function Hero() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="z-10"
+        className="z-10 px-4 sm:px-6 md:px-8"
       >
         <motion.h1
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.2 }}
-          className="text-5xl md:text-7xl font-extrabold text-green-900 mb-6 leading-tight drop-shadow-xl"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-blue-900 mb-4 sm:mb-6 leading-tight drop-shadow-xl"
         >
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-green-800">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800"> 
             {typedText || "Supercharge Your"}
           </span>{" "}
           WhatsApp Marketing
@@ -152,33 +162,33 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10 font-medium"
+          className="text-base sm:text-lg md:text-xl text-gray-600 max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto mb-6 sm:mb-8 font-medium"
         >
           INTRODUCING AN
-          <span className="text-green-600 font-semibold"> AMAZING WHATSAPP</span>{" "}
+          <span className="text-blue-600 font-semibold"> AMAZING WHATSAPP</span> 
            MARKETING SOFTWARE THAT OFFERS YOU THE BENEFIT OF SENDING MESSAGES WITHOUT ANY COST, ALONG WITH THE ABILITY TO SEND BULK MESSAGES EFFORTLESSLY, AND A VARIETY OF EXCITING FEATURES TO ENHANCE YOUR MARKETING EXPERIENCE!
         </motion.p>
 
-      <div className="flex gap-6 justify-center">
-      <motion.a
-        href="https://wa.me/917067330134"
-        target="_blank"
-        rel="noopener noreferrer"
-        whileHover={{ scale: 1.15, rotate: 2 }}
-        whileTap={{ scale: 0.95 }}
-        className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-4 rounded-full font-bold shadow-xl flex items-center gap-3 text-lg"
-      >
-        <FaWhatsapp className="text-2xl animate-pulse" /> Try Free Demo
-      </motion.a>
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+          <motion.a
+            href="https://wa.me/917067330134"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.15, rotate: 2 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full font-bold shadow-xl flex items-center gap-2 text-sm sm:text-base md:text-lg"
+          >
+            <FaWhatsapp className="text-xl sm:text-2xl animate-pulse" /> Try Free Demo
+          </motion.a>
 
-      <motion.button
-        whileHover={{ scale: 1.15, rotate: -2 }}
-        whileTap={{ scale: 0.95 }}
-        className="border-2 border-green-600 text-green-700 hover:bg-green-50 px-8 py-4 rounded-full font-bold shadow-md text-lg"
-      >
-        Learn More
-      </motion.button>
-    </div>
+          <motion.button
+            whileHover={{ scale: 1.15, rotate: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="border-2 border-blue-600 text-blue-700 hover:bg-blue-50 px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full font-bold shadow-md text-sm sm:text-base md:text-lg"
+          >
+            Learn More
+          </motion.button>
+        </div>
       </motion.div>
 
       {/* Decorative Glows */}
@@ -186,13 +196,13 @@ export default function Hero() {
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 0.2, scale: 1 }}
         transition={{ duration: 2, delay: 0.8 }}
-        className="absolute top-10 left-10 w-24 h-24 bg-green-400 rounded-full blur-xl"
+        className="absolute top-4 sm:top-6 md:top-10 left-4 sm:left-6 md:left-10 w-12 sm:w-16 md:w-24 h-12 sm:h-16 md:h-24 bg-blue-400 rounded-full blur-xl"
       />
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 0.2, scale: 1 }}
         transition={{ duration: 2, delay: 1 }}
-        className="absolute bottom-10 right-10 w-32 h-32 bg-green-500 rounded-full blur-xl"
+        className="absolute bottom-4 sm:bottom-6 md:bottom-10 right-4 sm:right-6 md:right-10 w-16 sm:w-20 md:w-32 h-16 sm:h-20 md:h-32 bg-blue-500 rounded-full blur-xl"
       />
     </section>
   );

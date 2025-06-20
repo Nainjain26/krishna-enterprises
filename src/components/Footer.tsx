@@ -33,11 +33,11 @@ const Footer = () => {
     { name: "Pricing", href: "/Pricing" },
     { name: "Terms of Services", href: "/terms" },
     { name: "Privacy Policy", href: "/Privacy_policy" },
-    { name: "Forum", href: "/forum" }
+    { name: "Contact-us", href: "/Contact-us" }
   ];
 
   return (
-    <footer className="bg-gradient-to-b from-green-700 to-green-900 text-white">
+    <footer className="bg-gradient-to-b from-blue-700 to-blue-900 text-white"> 
       <div className="container mx-auto px-6 py-12">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -48,28 +48,28 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
           >
             <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
-              <span className="bg-white text-green-600 p-2 rounded-full">
+              <span className="bg-white text-blue-600 p-2 rounded-full"> 
                 <FaPhone />
               </span>
               {contactInfo.title}
             </h3>
             <div className="space-y-4">
               <div>
-                <p className="text-green-200 mb-2">{contactInfo.hours}</p>
+                <p className="text-blue-200 mb-2">{contactInfo.hours}</p> 
                 <h4 className="text-lg font-semibold mb-1">{contactInfo.phone.label}</h4>
                 <Link 
                   href={contactInfo.phone.href} 
-                  className="text-xl font-bold hover:text-green-300 transition-colors"
+                  className="text-xl font-bold hover:text-blue-300 transition-colors"
                 >
                   {contactInfo.phone.number}
                 </Link>
               </div>
               
-              <div className="pt-4 border-t border-green-600">
+              <div className="pt-4 border-t border-blue-600"> 
                 <h4 className="text-lg font-semibold mb-1">{contactInfo.email.label}</h4>
                 <Link 
                   href={contactInfo.email.href} 
-                  className="text-lg hover:text-green-300 transition-colors flex items-center gap-2"
+                  className="text-lg hover:text-blue-300 transition-colors flex items-center gap-2" 
                 >
                   <FaEnvelope /> {contactInfo.email.address}
                 </Link>
@@ -91,7 +91,7 @@ const Footer = () => {
                   key={index}
                   href={social.href}
                   aria-label={social.label}
-                  className="bg-white text-green-700 p-3 rounded-full hover:bg-green-100 transition-colors"
+                  className="bg-white text-blue-700 p-3 rounded-full hover:bg-blue-100 transition-colors" 
                 >
                   {social.icon}
                 </Link>
@@ -111,7 +111,7 @@ const Footer = () => {
                 <Link
                   key={index}
                   href={link.href}
-                  className="hover:text-green-300 transition-colors"
+                  className="hover:text-blue-300 transition-colors"
                 >
                   {link.name}
                 </Link>
@@ -125,7 +125,7 @@ const Footer = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="border-t border-green-600 mt-12 pt-8 text-center text-green-300"
+          className="border-t border-blue-600 mt-12 pt-8 text-center text-blue-300" 
         >
           <p>Copyright © tech-branzzo All rights reserved</p>
         </motion.div>

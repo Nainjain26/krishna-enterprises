@@ -46,7 +46,7 @@ const PrivacyPolicy = () => {
   return (
     <section className="min-h-screen px-6 py-16 bg-gradient-to-b from-white via-gray-50 to-white text-gray-800">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-green-800">
+        <h1 className="text-4xl font-bold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">
           Privacy Policy
         </h1>
 
@@ -57,7 +57,7 @@ const PrivacyPolicy = () => {
         <div className="space-y-8 text-base leading-relaxed">
           {policySections.map((section, idx) => (
             <div key={idx}>
-              <h2 className="text-xl font-semibold text-green-600 mb-2">
+              <h2 className="text-xl font-semibold text-blue-600 mb-2">
                 {section.heading}
               </h2>
               {section.content && <p className="mb-2">{section.content}</p>}

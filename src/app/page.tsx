@@ -1,3 +1,4 @@
+import BrandsTrust from "@/components/BrandsTrust";
 import CommitmentMessage from "@/components/CommitmentMessage";
 
 import Hero from "@/components/Hero";
@@ -16,7 +17,7 @@ export default function Home() {
     <CommitmentMessage/>
     <MarketingStats/>
     <MarketingFAQ/>
-   
+    <BrandsTrust/>
    </div>
   );
 }

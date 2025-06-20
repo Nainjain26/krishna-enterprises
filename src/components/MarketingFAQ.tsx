@@ -9,19 +9,19 @@ const faqs = [
     id: 1,
     question: "What marketing services does your agency offer?",
     answer: "We provide a comprehensive suite of digital marketing services including SEO, social media marketing, content creation, email campaigns, PPC advertising, and marketing automation. Our team tailors strategies to your specific business goals.",
-    icon: <FaTools className="text-green-600 text-xl" />
+    icon: <FaTools className="text-blue-600 text-xl" />
   },
   {
     id: 2,
     question: "How can I contact marketing support?",
     answer: "Our support team is available 24/7 through multiple channels: live chat on our website, email at support@yourmarketing.com, or phone at (555) 123-4567. We typically respond within 1 hour during business hours.",
-    icon: <FaHeadset className="text-green-600 text-xl" />
+    icon: <FaHeadset className="text-blue-600 text-xl" />
   },
   {
     id: 3,
     question: "What is your satisfaction guarantee policy?",
     answer: "We offer a 100% satisfaction guarantee. If you're not completely happy with our services within the first 30 days, we'll either rework your campaign at no extra cost or provide a full refund. Your success is our priority.",
-    icon: <FaShieldAlt className="text-green-600 text-xl" />
+    icon: <FaShieldAlt className="text-blue-600 text-xl" />
   }
 ];
 
@@ -54,7 +54,7 @@ export default function MarketingFAQ() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-green-900/30 to-transparent"></div>
               <div className="absolute bottom-6 left-6 bg-white/90 p-4 rounded-lg shadow-md">
-                <h3 className="text-lg font-bold text-green-800">Got Questions?</h3>
+                <h3 className="text-lg font-bold text-blue-800">Got Questions?</h3>
                 <p className="text-sm text-gray-700">We&apos;ve got answers!</p>
               </div>
             </div>
@@ -69,7 +69,7 @@ export default function MarketingFAQ() {
               className="mb-12"
             >
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-teal-600">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-blue-900">
                   Top Marketing Questions
                 </span>{" "}
                 Answered
@@ -94,7 +94,7 @@ export default function MarketingFAQ() {
                     onClick={() => toggleFAQ(faq.id)}
                   >
                     <div className="flex items-start gap-4">
-                      <div className="bg-green-100 p-3 rounded-lg mt-1">
+                      <div className="bg-blue-100 p-3 rounded-lg mt-1">
                         {faq.icon}
                       </div>
                       <div className="flex-1">
@@ -104,7 +104,7 @@ export default function MarketingFAQ() {
                             animate={{ rotate: activeId === faq.id ? 180 : 0 }}
                             transition={{ duration: 0.3 }}
                           >
-                            <FaChevronDown className="text-green-500" />
+                            <FaChevronDown className="text-blue-500" />
                           </motion.span>
                         </h3>
                         <AnimatePresence>

@@ -56,7 +56,7 @@ export default function CommitmentMessage() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(16, 185, 129, 0.4)";
+        ctx.fillStyle = "rgba(60, 35, 248, 0.4)";
         ctx.fill();
 
         for (let j = i + 1; j < particles.length; j++) {
@@ -88,7 +88,7 @@ export default function CommitmentMessage() {
       {/* Parallax background */}
       <motion.div
         style={{ y: backgroundY, opacity }}
-        className="absolute inset-0 bg-gradient-to-br from-emerald-100 via-teal-50 to-emerald-200 bg-[radial-gradient(circle_at_center,_rgba(16,185,129,0.3)_0%,_transparent_70%)] -z-10"
+        className="absolute inset-0  bg-gradient-to-br from-[#3498DB] via-[#5dade2] to-[#3498DB] bg-[radial-gradient(circle_at_center,_rgba(52,152,219,0.3)_0%,_transparent_70%)]  -z-10"
       />
 
       <motion.div
@@ -122,16 +122,16 @@ export default function CommitmentMessage() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 to-teal-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-700 mb-6">
             Our Commitment
           </h2>
           <p className="text-lg md:text-xl text-gray-900 leading-relaxed">
             We’re dedicated to fueling your marketing success with{" "}
-            <span className="text-emerald-200 font-bold animate-pulse">
+            <span className="text-blue-200 font-bold animate-pulse">
               unparalleled support
             </span>{" "}
             and{" "}
-            <span className="text-emerald-200 font-bold animate-pulse">
+            <span className="text-blue-200 font-bold animate-pulse">
               expert guidance
             </span>
             , guiding you every step of the way.
@@ -144,13 +144,13 @@ export default function CommitmentMessage() {
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 0.2, scale: 1 }}
         transition={{ duration: 2, delay: 1 }}
-        className="absolute top-10 left-10 w-32 h-32 bg-emerald-400 rounded-full blur-3xl -z-5"
+        className="absolute top-10 left-10 w-32 h-32 bg-blue-400 rounded-full blur-3xl -z-5"
       />
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 0.2, scale: 1 }}
         transition={{ duration: 2, delay: 1.2 }}
-        className="absolute bottom-10 right-10 w-40 h-40 bg-teal-500 rounded-full blur-3xl -z-5"
+        className="absolute bottom-10 right-10 w-40 h-40 bg-blue-500 rounded-full blur-3xl -z-5"
       />
     </section>
   );

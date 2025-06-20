@@ -48,8 +48,14 @@ export default function MarketingStats() {
       section.prepend(canvas);
     }
     const ctx = canvas.getContext("2d");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
     // Initialize particles array with explicit type
     const particles: Particle[] = [];
@@ -75,7 +81,7 @@ export default function MarketingStats() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(16, 185, 129, 0.5)";
+        ctx.fillStyle = "rgba(52, 152, 219, 0.5)"; // Changed to #3498DB
         ctx.fill();
 
         for (let j = i + 1; j < particles.length; j++) {
@@ -85,7 +91,7 @@ export default function MarketingStats() {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(16, 185, 129, ${1 - dist / 100})`;
+            ctx.strokeStyle = `rgba(52, 152, 219, ${1 - dist / 100})`; // Changed to #3498DB
             ctx.stroke();
           }
         }
@@ -95,6 +101,7 @@ export default function MarketingStats() {
     animate();
 
     return () => {
+      window.removeEventListener("resize", resizeCanvas);
       canvas.remove();
     };
   }, []);
@@ -102,12 +109,12 @@ export default function MarketingStats() {
   return (
     <section
       ref={ref}
-      className="relative py-28 px-6 bg-gradient-to-br from-emerald-50 via-teal-50 to-emerald-100 text-center overflow-hidden stats-section"
+      className="relative py-12 sm:py-16 md:py-20 lg:py-28 px-4 sm:px-6 md:px-8 bg-gradient-to-br from-blue-50 via-white to-blue-100 text-center overflow-hidden stats-section" // Adjusted padding for responsiveness
     >
       {/* Parallax background */}
       <motion.div
         style={{ y: backgroundY, opacity }}
-        className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(16,185,129,0.4)_0%,_transparent_70%)] -z-10"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(52,152,219,0.4)_0%,_transparent_70%)] -z-10"
       />
 
       {/* Main Heading */}
@@ -115,7 +122,7 @@ export default function MarketingStats() {
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 to-teal-900 mb-6 "
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-900 mb-4 sm:mb-6" // Adjusted font size and margin
       >
         Marketing Stats That Matter
       </motion.h2>
@@ -124,39 +131,48 @@ export default function MarketingStats() {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
-        className="text-lg md:text-xl text-gray-800 max-w-3xl mx-auto mb-20"
+        className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-800 max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-3xl mx-auto mb-8 sm:mb-12 md:mb-16 lg:mb-20" // Adjusted font size and margin
       >
-        Dive into the metrics powering our clients &apos; success with key performance insights that drive results.
+        Dive into the metrics powering our clients&apos;success with key
+        performance insights that drive results.
       </motion.p>
 
       {/* Stats Grid */}
-      <div className="grid gap-12 md:grid-cols-3 max-w-7xl mx-auto">
+      <div className="grid gap-6 sm:gap-8 md:gap-12 max-w-7xl mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {stats.map((item, index) => (
           <motion.div
             key={index}
-            className="relative bg-white/30 backdrop-blur-lg p-10 rounded-2xl shadow-2xl border border-emerald-200/50 overflow-hidden"
+            className="relative bg-white/30 backdrop-blur-lg p-4 sm:p-6 md:p-8 lg:p-10 rounded-xl sm:rounded-2xl shadow-lg border border-blue-200/50 overflow-hidden" // Adjusted padding and rounding
             initial={{ opacity: 0, y: 50, rotate: index % 2 === 0 ? 3 : -3 }}
             whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-            whileHover={{ scale: 1.1, rotate: 0, boxShadow: "0 15px 30px rgba(16, 185, 129, 0.4)" }}
+            whileHover={{
+              scale: 1.05,
+              rotate: 0,
+              boxShadow: "0 10px 20px rgba(52, 152, 219, 0.4)", // Adjusted shadow
+            }}
             transition={{ duration: 0.8, delay: index * 0.2 }}
           >
             {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-100/20 to-teal-100/20 opacity-60" />
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-100/20 to-indigo-100/20 opacity-60" /> 
             <div className="relative z-10">
               <motion.div
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.2 + 0.3 }}
-                className="text-6xl font-extrabold text-emerald-600 mb-6"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-blue-600 mb-2 sm:mb-4" // Adjusted font size and margin
               >
                 {item.number}
               </motion.div>
-              <h3 className="text-2xl font-semibold text-gray-800 mb-3">{item.title}</h3>
-              <p className="text-base text-gray-700 leading-relaxed">{item.description}</p>
+              <h3 className="text-lg sm:text-xl md:text-2xl lg:text-2xl font-semibold text-gray-800 mb-2 sm:mb-3">
+                {item.title}
+              </h3>
+              <p className="text-xs sm:text-sm md:text-base lg:text-base text-gray-700 leading-relaxed">
+                {item.description}
+              </p>
             </div>
             {/* Animated Border Effect */}
             <motion.div
-              className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-teal-500"
+              className="absolute bottom-0 left-0 w-full h-0.5 sm:h-1 bg-gradient-to-r from-blue-500 to-indigo-500" // Adjusted height
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               transition={{ duration: 1, delay: index * 0.3 }}
@@ -170,13 +186,13 @@ export default function MarketingStats() {
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 0.3, scale: 1 }}
         transition={{ duration: 2, delay: 1.2 }}
-        className="absolute top-10 left-10 w-36 h-36 bg-emerald-400 rounded-full blur-3xl -z-5"
+        className="absolute top-2 sm:top-4 md:top-6 lg:top-10 left-2 sm:left-4 md:left-6 lg:left-10 w-12 sm:w-16 md:w-24 lg:w-36 h-12 sm:h-16 md:h-24 lg:h-36 bg-blue-400 rounded-full blur-xl -z-5" // Adjusted sizes and positions
       />
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 0.3, scale: 1 }}
         transition={{ duration: 2, delay: 1.4 }}
-        className="absolute bottom-10 right-10 w-48 h-48 bg-teal-500 rounded-full blur-3xl -z-5"
+        className="absolute bottom-2 sm:bottom-4 md:bottom-6 lg:bottom-10 right-2 sm:right-4 md:right-6 lg:right-10 w-16 sm:w-20 md:w-32 lg:w-48 h-16 sm:h-20 md:h-32 lg:h-48 bg-blue-500 rounded-full blur-xl -z-5" // Adjusted sizes and positions
       />
     </section>
   );

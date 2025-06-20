@@ -27,7 +27,7 @@ const pricingPlans = [
       "Flexible Contracts & Satisfaction Guaranteed",
     ],
     popular: false,
-    color: "from-emerald-400 to-teal-500",
+    color: "from-blue-400 to-indigo-500", 
   },
   {
     name: "Premium",
@@ -43,7 +43,7 @@ const pricingPlans = [
       "Flexible Contracts & Satisfaction Guaranteed",
     ],
     popular: true,
-    color: "from-teal-500 to-cyan-600",
+    color: "from-blue-500 to-indigo-600", 
   },
   {
     name: "Yearly Plan",
@@ -59,7 +59,7 @@ const pricingPlans = [
       "Flexible Contracts & Satisfaction Guaranteed",
     ],
     popular: false,
-    color: "from-cyan-500 to-blue-600",
+    color: "from-blue-600 to-indigo-700", 
   },
 ];
 
@@ -73,7 +73,7 @@ export default function Pricing() {
   const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.4, 1, 0.4]);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
-  // Enhanced particle animation effect
+  
   useEffect(() => {
     const canvas = document.createElement("canvas");
     canvas.className = "absolute inset-0 z-0 w-full h-full";
@@ -94,10 +94,10 @@ export default function Pricing() {
     const particles: Particle[] = [];
     const particleCount = 80;
     const colors = [
-      "rgba(16, 185, 129, 0.6)",
-      "rgba(20, 184, 166, 0.6)",
-      "rgba(6, 182, 212, 0.6)",
-      "rgba(8, 145, 178, 0.6)"
+      "rgba(52, 152, 219, 0.6)", 
+      "rgba(59, 130, 246, 0.6)", 
+      "rgba(29, 78, 216, 0.6)", 
+      "rgba(96, 165, 250, 0.6)" 
     ];
 
     for (let i = 0; i < particleCount; i++) {
@@ -117,8 +117,8 @@ export default function Pricing() {
       
       // Draw gradient background
       const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-      gradient.addColorStop(0, 'rgba(236, 253, 245, 0.8)');
-      gradient.addColorStop(1, 'rgba(209, 250, 229, 0.8)');
+      gradient.addColorStop(0, 'rgba(239, 246, 255, 0.8)'); 
+      gradient.addColorStop(1, 'rgba(219, 234, 254, 0.8)'); 
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -155,7 +155,7 @@ export default function Pricing() {
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = `rgba(16, 185, 129, ${1 - dist / 120})`;
+            ctx.strokeStyle = `rgba(52, 152, 219, ${1 - dist / 120})`; 
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -174,12 +174,12 @@ export default function Pricing() {
   return (
     <section
       ref={ref}
-      className="relative py-28 px-6 bg-gradient-to-br from-emerald-50 via-teal-50 to-emerald-100 text-center overflow-hidden pricing-section"
+      className="relative py-28 px-6 bg-gradient-to-br from-blue-50 via-white to-blue-100 text-center overflow-hidden pricing-section" // Changed to #3498DB gradient
     >
       {/* Parallax background */}
       <motion.div
         style={{ y: backgroundY, opacity }}
-        className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(16,185,129,0.2)_0%,_transparent_70%)] -z-10"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(52,152,219,0.2)_0%,_transparent_70%)] -z-10" // Changed to #3498DB
       />
 
       {/* Floating bubbles */}
@@ -199,7 +199,7 @@ export default function Pricing() {
             delay: Math.random() * 5
           }}
           className={`absolute rounded-full blur-xl -z-1 ${
-            i % 3 === 0 ? 'bg-emerald-300' : i % 2 === 0 ? 'bg-teal-300' : 'bg-cyan-300'
+            i % 3 === 0 ? 'bg-blue-300' : i % 2 === 0 ? 'bg-indigo-300' : 'bg-blue-400' 
           }`}
           style={{
             width: `${50 + Math.random() * 100}px`,
@@ -217,11 +217,11 @@ export default function Pricing() {
         transition={{ duration: 1, ease: "easeOut" }}
         className="mb-20 max-w-4xl mx-auto relative"
       >
-        <div className="absolute -top-10 -left-10 w-32 h-32 bg-emerald-300 rounded-full blur-3xl opacity-20 -z-10"></div>
-        <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-teal-400 rounded-full blur-3xl opacity-20 -z-10"></div>
+        <div className="absolute -top-10 -left-10 w-32 h-32 bg-blue-300 rounded-full blur-3xl opacity-20 -z-10"></div> 
+        <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-blue-400 rounded-full blur-3xl opacity-20 -z-10"></div> 
         
         <motion.h2 
-          className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 to-teal-900 mb-6"
+          className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-900 mb-6" // Changed to #3498DB gradient
           animate={{
             backgroundPosition: ['0% 50%', '100% 50%'],
           }}
@@ -254,8 +254,8 @@ export default function Pricing() {
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ 
               scale: 1.03, 
-              boxShadow: "0 25px 50px -12px rgba(16, 185, 129, 0.25)",
-              borderColor: 'rgba(16, 185, 129, 0.5)'
+              boxShadow: "0 25px 50px -12px rgba(52, 152, 219, 0.25)", 
+              borderColor: 'rgba(52, 152, 219, 0.5)' 
             }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             onMouseEnter={() => setHoveredCard(index)}
@@ -313,15 +313,10 @@ export default function Pricing() {
             )}
             
             <div className="relative z-10 h-full flex flex-col">
-              <h3 className="text-2xl font-bold text-emerald-900 mb-3">{plan.name}</h3>
-              
+              <h3 className="text-2xl font-bold text-blue-900 mb-3">{plan.name}</h3> 
               <div className="mb-6">
-                <div className="text-5xl font-extrabold text-emerald-700 mb-1">
-                  {plan.price}
-                </div>
-                <div className="text-lg font-medium text-gray-600">
-                  {plan.period}
-                </div>
+                <div className="text-5xl font-extrabold text-blue-700 mb-1">{plan.price}</div> {/* Changed to #3498DB */}
+                <div className="text-lg font-medium text-gray-600">{plan.period}</div>
               </div>
               
               <p className="text-gray-700 mb-8 flex-grow-0">{plan.description}</p>
@@ -335,7 +330,7 @@ export default function Pricing() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 * i }}
                   >
-                    <svg className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"> {/* Changed to #3498DB */}
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                     </svg>
                     <span>{feature}</span>
@@ -343,23 +338,23 @@ export default function Pricing() {
                 ))}
               </ul>
               
-            <motion.div
-  whileHover={{ 
-    scale: 1.05,
-    background: `linear-gradient(to right, ${plan.color.replace('from-', '').replace('to-', '').replace(' ', ', ')})`
-  }}
-  whileTap={{ scale: 0.95 }}
-  className={`mt-auto bg-gradient-to-r ${plan.color} text-white px-6 py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-300 inline-block`}
->
-  <Link href="/">
-    <span className="block">Choose Plan</span>
-  </Link>
-</motion.div>
+              <motion.div
+                whileHover={{ 
+                  scale: 1.05,
+                  background: `linear-gradient(to right, ${plan.color.replace('from-', '').replace('to-', '').replace(' ', ', ')})`
+                }}
+                whileTap={{ scale: 0.95 }}
+                className={`mt-auto bg-gradient-to-r ${plan.color} text-white px-6 py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition-all duration-300 inline-block`}
+              >
+                <Link href="/">
+                  <span className="block">Choose Plan</span>
+                </Link>
+              </motion.div>
             </div>
             
             {/* Animated Border Effect */}
             <motion.div
-              className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-teal-500"
+              className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-indigo-500" // Changed to #3498DB gradient
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
@@ -373,13 +368,13 @@ export default function Pricing() {
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 0.2, scale: 1 }}
         transition={{ duration: 2, delay: 1.2 }}
-        className="absolute top-10 left-10 w-36 h-36 bg-emerald-400 rounded-full blur-3xl -z-10"
+        className="absolute top-10 left-10 w-36 h-36 bg-blue-400 rounded-full blur-3xl -z-10" // Changed to #3498DB shade
       />
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 0.2, scale: 1 }}
         transition={{ duration: 2, delay: 1.4 }}
-        className="absolute bottom-10 right-10 w-48 h-48 bg-teal-500 rounded-full blur-3xl -z-10"
+        className="absolute bottom-10 right-10 w-48 h-48 bg-blue-500 rounded-full blur-3xl -z-10" // Changed to #3498DB shade
       />
       
       {/* Floating CTA */}
@@ -389,12 +384,12 @@ export default function Pricing() {
         transition={{ delay: 0.5 }}
         className="mt-20 max-w-2xl mx-auto bg-white/50 backdrop-blur-md p-6 rounded-2xl shadow-lg border border-white/70"
       >
-        <h3 className="text-2xl font-bold text-emerald-800 mb-3">Need a custom solution?</h3>
+        <h3 className="text-2xl font-bold text-blue-800 mb-3">Need a custom solution?</h3> {/* Changed to #3498DB shade */}
         <p className="text-gray-700 mb-4">We can tailor a plan specifically for your business needs.</p>
         <motion.button
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
-          className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-6 py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition-all"
+          className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-3 rounded-full font-semibold shadow-md hover:shadow-lg transition-all" // Changed to #3498DB gradient
         >
           Contact Our Sales Team
         </motion.button>
