@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useAnimation, Variants, useInView } from "framer-motion";
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { FaHandshake, FaCheckCircle } from "react-icons/fa";
 
@@ -139,7 +140,7 @@ export default function MarketingPartnership() {
             className="inline-flex items-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg md:text-xl shadow-lg hover:shadow-xl transition-all duration-300"
           >
             <FaHandshake className="mr-2 text-xl sm:text-2xl" />
-            Contact US
+           <Link href="/Contact-us">Contact US</Link> 
           </motion.div>
         </motion.div>
 
