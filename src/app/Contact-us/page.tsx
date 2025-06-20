@@ -117,7 +117,7 @@ export default function ContactPage() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="bg-white/50 backdrop-blur-lg border border-white/60 p-8 rounded-3xl shadow-2xl space-y-6 hover:shadow-blue-100/50 hover:shadow-xl transition-shadow duration-300" // Changed to #3498DB shade
+          className="bg-white/50 backdrop-blur-lg border text-gray-600 border-white/60 p-8 rounded-3xl shadow-2xl space-y-6 hover:shadow-blue-100/50 hover:shadow-xl transition-shadow duration-300" // Changed to #3498DB shade
         >
           <div className="flex items-center gap-3 mb-6">
             <div className="p-3 bg-blue-100 rounded-full"> {/* Changed to #3498DB shade */}
@@ -136,7 +136,7 @@ export default function ContactPage() {
                   className="w-full mt-1 p-3 pl-10 border border-gray-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" // Changed to #3498DB
                   placeholder="John Doe"
                 />
-                <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                <div className="absolute  left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                   </svg>
